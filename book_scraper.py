@@ -15,6 +15,12 @@ def scrape_books(url):
         all_books.append(book_data)
     print(all_books)
 
+def save_books(all_books):
+    conn = sqlite3.connect("books.db")
+    c = conn.cursor()
+    c.execute('''CREATE TABLE books
+            (title TEXT, price REAL, rating INTEGER)''')
+    c.executemany("INSERT INTO books VALUES (?,?,?)", all_books)
         
 def get_title(book):
     return book.find("h3").find("a")["title"]
