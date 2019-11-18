@@ -13,6 +13,8 @@ def scrape_books(url):
     for book in books: 
         book_data = (get_title(book), get_price(book), get_rating(book))
         all_books.append(book_data)
+    print(all_books)
+
         
 def get_title(book):
     return book.find("h3").find("a")["title"]
