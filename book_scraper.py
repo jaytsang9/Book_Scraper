@@ -2,9 +2,6 @@ import sqlite3
 import requests
 from bs4 import BeautifulSoup
 
-
-for book in books:
-
 def scrape_books(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
